@@ -13,7 +13,7 @@ export default function ArtList() {
 
   const [artData, setArtData] = useState(null);
 
-  useEffect(() => fetchAllArt(), [])
+  useEffect(fetchAllArt, [])
 
   return (
     <ul className='art-list'>
