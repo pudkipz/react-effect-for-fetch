@@ -1,11 +1,11 @@
 import UsersList from './components/UsersList'
 
-function UsersSection() {
+function UsersSection({usersData}) {
   return (
     <section>
       <h2>Users Section</h2>
       <div className="scroll-container"></div>
-      <UsersList />
+      <UsersList usersData={usersData}/>
     </section>
   )
 }
