@@ -4,8 +4,9 @@ function UsersSection({usersData}) {
   return (
     <section>
       <h2>Users Section</h2>
-      <div className="scroll-container"></div>
-      <UsersList usersData={usersData}/>
+      <div className="scroll-container">
+        <UsersList usersData={usersData}/>
+      </div>
     </section>
   )
 }
