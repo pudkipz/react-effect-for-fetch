@@ -5,7 +5,6 @@ export default function UsersList({usersData}) {
     <ul className='users-list'>
       {usersData && usersData.map((usersItem, i) =>
               <UsersListItem usersItem={usersItem} key={i} />)}
-
     </ul>
   )
 }

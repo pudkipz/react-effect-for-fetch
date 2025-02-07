@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react'
 
 
 function App() {
-  const fetchData = (query, action) => {
+  const fetchData = (url, action) => {
   // console.log({query})
-    fetch(`https://boolean-uk-api-server.fly.dev${query}`)
+    fetch(`${url}`)
       .then(response => response.json())
       .then(data => action(data));
       // .then(data => console.log(data));
@@ -19,17 +19,20 @@ function App() {
 
   const [artData, setArtData] = useState(null);
   const [usersData, setUsersData] = useState(null);
+  const [currentAdvice, setCurrentAdvice] = useState('');
+  const [favouriteAdvice, setFavouriceAdvice] = useState([])
 
-  useEffect(() => fetchData('/art', setArtData), []);
-  useEffect(() => fetchData('/pudkipz/contact', setUsersData), []);
+  useEffect(() => fetchData('https://boolean-uk-api-server.fly.dev/art', setArtData), []);
+  useEffect(() => fetchData('https://boolean-uk-api-server.fly.dev/pudkipz/contact', setUsersData), []);
+  useEffect(() => fetchData('https://api.adviceslip.com/advice', setCurrentAdvice), [])  // ??
 
-  // {console.log(artData)}
+  // {console.log(currentAdvice)}
   return (
     
     <div className="main-layout">
       {artData && <ArtsSection artData={artData} />}
       {usersData && <UsersSection usersData={usersData} />}
-      <AdviceSection />
+      {currentAdvice && <AdviceSection currentAdvice={currentAdvice} favouriteAdvice={favouriteAdvice} />}
     </div>
   )
 }
