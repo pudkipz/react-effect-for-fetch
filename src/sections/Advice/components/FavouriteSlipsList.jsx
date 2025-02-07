@@ -4,7 +4,7 @@ export default function FavouriteSlipsList({favouriteAdvice}) {
     <h3>Favourite Advice Slips</h3>
     <ul>
       {favouriteAdvice.map((advice, i) =>
-        <li key={i}>{advice.advice}</li>)}
+        <li key={i}>{advice.slip.advice}</li>)}
     </ul>
     </>
   )
